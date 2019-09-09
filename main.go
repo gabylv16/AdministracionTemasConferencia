@@ -81,6 +81,7 @@ func main() {
 	networkingEvent.hour, _ = time.Parse("15:04", eventHout)
 	thematicSlice = assingnConferencesTothematic(conferenceList, thematicSlice)
 
+	//prints the whole schedule
 	for i, thematic := range thematicSlice {
 		fmt.Println()
 		fmt.Print("THEMATIC #")
@@ -156,6 +157,7 @@ func assingnConferencesTothematic(conferenceList []conference, thematicList []th
 		}
 
 	}
+	//recursion is used, with a list of the non schedule conferences and the thematic list
 	thematicList = append(thematicList, thematic)
 	if len(nonScheduledConfs) > 0 {
 		thematicList = assingnConferencesTothematic(nonScheduledConfs, thematicList)
